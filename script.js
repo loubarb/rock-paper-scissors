@@ -1,56 +1,75 @@
+const buttons = document.querySelectorAll('button')
+const container = document.querySelector('.container')
+
+const resultsDiv = document.createElement('div')
+
+
 const getComputerChoice = () => {
     const choices = ['Rock', 'Paper', 'Scissors'];
     const randomChoice = choices[Math.floor(Math.random() * choices.length)]
     return randomChoice
 }
 
+let playerScore = 0
+let computerScore = 0
 
 const playRound = (playerSelection, computerSelection) => {
     computerSelection = getComputerChoice().toLowerCase();
-    playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase()
-
-    console.log(computerSelection)
-    console.log(playerSelection)
 
     if (computerSelection === 'rock' && playerSelection === 'scissors') {
-        return `You lose. ${computerSelection} beats ${playerSelection}`
+  
+        resultsDiv.textContent = `You lose. ${computerSelection} beats ${playerSelection}`
+        computerScore++
+  
     } else if (computerSelection === 'rock' && playerSelection === 'paper') {
-        return `You win! ${playerSelection} beats ${computerSelection}`
+   
+        resultsDiv.textContent = `You win! ${playerSelection} beats ${computerSelection}`
+        playerScore++
+
     } else if (computerSelection === 'paper' && playerSelection === 'scissors') {
-        return `You win! ${playerSelection} beats ${computerSelection}`
+
+        resultsDiv.textContent = `You win! ${playerSelection} beats ${computerSelection}`
+        playerScore++
+
     } else if (computerSelection === 'paper' && playerSelection === 'rock') {
-        return `You lose. ${computerSelection} beats ${playerSelection}`
+
+        resultsDiv.textContent = `You lose. ${computerSelection} beats ${playerSelection}`
+        computerScore++
+
     } else if (computerSelection === 'scissors' && playerSelection === 'rock') {
-        return `You win! ${playerSelection} beats ${computerSelection}`
+   
+        resultsDiv.textContent = `You win! ${playerSelection} beats ${computerSelection}`
+        playerScore++
+
     } else if (computerSelection === 'scissors' && playerSelection === 'paper') {
-        return `You lose. ${computerSelection} beats ${playerSelection}`
+
+        resultsDiv.textContent = `You lose. ${computerSelection} beats ${playerSelection}`
+        computerScore++
+
     } else if (computerSelection === playerSelection) {
-        return "It's a draw."
+        resultsDiv.textContent = "It's a draw."
+
     } else {
-        return "Please enter a valid response"
+        resultsDiv.textContent = "Please enter a valid response"
+
+    }
+    container.appendChild(resultsDiv)
+
+    updateScore()
+
+}
+
+function updateScore() {
+    document.querySelector('.playerScore').textContent = playerScore
+    document.querySelector('.computerScore').textContent = computerScore
+
+    if (playerScore === 5) {
+        alert("You win!")
+        return
+    }
+    if (computerScore === 5) {
+        alert("Computer wins.")
+        return
     }
 }
 
-const game = () => {
-    for (let i = 0; i < 5; i++) {
-        console.log(playRound())
-    }
-}
-
-// const compareOutcomes = () => {
-//     if (computerSelection === 'Rock' && playerSelection === 'Scissors') {
-//         return `You lose. ${computerSelection} beats ${playerSelection}`
-//     } else if (computerSelection === 'Rock' && playerSelection === 'Paper') {
-//         return `You win! ${playerSelection} beats ${computerSelection}`
-//     } else if (computerSelection === 'Paper' && playerSelection === 'Scissors') {
-//         return `You win! ${playerSelection} beats ${computerSelection}`
-//     } else if (computerSelection === 'Paper' && playerSelection === 'Rock') {
-//         return `You lose. ${computerSelection} beats ${playerSelection}`
-//     } else if (computerSelection === 'Scissors' && playerSelection === 'Rock') {
-//         return `You win! ${playerSelection} beats ${computerSelection}`
-//     } else if (computerSelection === 'Scissors' && playerSelection === 'Paper') {
-//         return `You lose. ${computerSelection} beats ${playerSelection}`
-//     } else {
-//         return "It's a draw."
-//     }
-// }
