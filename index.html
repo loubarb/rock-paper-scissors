@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div class="container">
-        <button onclick="playRound('rock')" id="rock">Rock</button>
-        <button onclick="playRound('paper')" id="paper">Paper</button>
-        <button onclick="playRound('scissors')" id="scissors">Scissors</button>
+    <div class="title">
+        <h1>Rock Paper Scissors</h1>
     </div>
-    <div class="score">
-        <h2>Player: <span class='playerScore'>0</span></h2>
-        <h2>Computer: <span class='computerScore'>0</span></h2>
+    <div class="wrapper">
+        <div class="container">
+            <button onclick="playRound('rock')" id="rock">Rock</button>
+            <button onclick="playRound('paper')" id="paper">Paper</button>
+            <button onclick="playRound('scissors')" id="scissors">Scissors</button>
+        </div>
     </div>
+
+        <div class="score">
+            <h2>Score:</h2>
+            <h2>Player: <span class='playerScore'>0</span></h2>
+            <h2>Computer: <span class='computerScore'>0</span></h2>
+        </div>
+    
 </body>
 </html>

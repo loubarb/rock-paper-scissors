@@ -1,7 +1,9 @@
 const buttons = document.querySelectorAll('button')
 const container = document.querySelector('.container')
+const wrapper = document.querySelector('.wrapper')
 
 const resultsDiv = document.createElement('div')
+resultsDiv.className = 'selections'
 
 
 const getComputerChoice = () => {
@@ -18,42 +20,42 @@ const playRound = (playerSelection, computerSelection) => {
 
     if (computerSelection === 'rock' && playerSelection === 'scissors') {
   
-        resultsDiv.textContent = `You lose. ${computerSelection} beats ${playerSelection}`
+        resultsDiv.innerHTML = `<h3>You lose. Computer played ${computerSelection}.</h3>`
         computerScore++
   
     } else if (computerSelection === 'rock' && playerSelection === 'paper') {
    
-        resultsDiv.textContent = `You win! ${playerSelection} beats ${computerSelection}`
+        resultsDiv.innerHTML = `<h3>You win! Computer played ${computerSelection}.</h3>`
         playerScore++
 
     } else if (computerSelection === 'paper' && playerSelection === 'scissors') {
 
-        resultsDiv.textContent = `You win! ${playerSelection} beats ${computerSelection}`
+        resultsDiv.innerHTML = `<h3>You win! Computer played ${computerSelection}.</h3>`
         playerScore++
 
     } else if (computerSelection === 'paper' && playerSelection === 'rock') {
 
-        resultsDiv.textContent = `You lose. ${computerSelection} beats ${playerSelection}`
+        resultsDiv.innerHTML = `<h3>You lose. Computer played ${computerSelection}.</h3>`
         computerScore++
 
     } else if (computerSelection === 'scissors' && playerSelection === 'rock') {
    
-        resultsDiv.textContent = `You win! ${playerSelection} beats ${computerSelection}`
+        resultsDiv.innerHTML = `<h3>You win! Computer played ${computerSelection}.</h3>`
         playerScore++
 
     } else if (computerSelection === 'scissors' && playerSelection === 'paper') {
 
-        resultsDiv.textContent = `You lose. ${computerSelection} beats ${playerSelection}`
+        resultsDiv.innerHTML = `<h3>You lose. Computer played ${computerSelection}.</h3>`
         computerScore++
 
     } else if (computerSelection === playerSelection) {
-        resultsDiv.textContent = "It's a draw."
+        resultsDiv.innerHTML = `<h3>It's a draw. Computer also played ${computerSelection}.</h3>`
 
     } else {
-        resultsDiv.textContent = "Please enter a valid response"
+        resultsDiv.innerHTML = `<h3>Please enter a valid response</h3>`
 
     }
-    container.appendChild(resultsDiv)
+    wrapper.appendChild(resultsDiv)
 
     updateScore()
 
