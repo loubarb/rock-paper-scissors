@@ -2,21 +2,32 @@ body {
     background: url('./img/minimal-rps-bg.jpg') fixed;
     background-position: bottom;
     background-size: 300px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-shadow: 3px 3px 2px #000000;
 }
 
 .title {
-    text-align: center;
-    padding-bottom: 25px;
+    text-align: center;   
+    margin: 50px 0 25px 0;
+    font-family: 'Luckiest Guy', cursive;
+    letter-spacing: 5px;
 }
 
 .wrapper {
+    margin: 10px 0;
+}
+
+.intro {
     margin: 50px 0;
+    text-align: center;
 }
 
 .container {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 20px 0;
 }
 
 .container button {
@@ -28,13 +39,21 @@ body {
 }
 
 .selected {
-    font-size: 32px;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .selections {
-    margin: 50px;
+    margin: 25px;
     padding: 10px 0;
     text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10% 20%;
+    background: rgba(76, 175, 80, 0.1);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .score {
@@ -57,7 +76,7 @@ body {
     }
     
     .selections {
-        margin: 30px;
+        margin: 3% 15% 0 15%;
     }
     
     .score {

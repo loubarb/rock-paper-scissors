@@ -61,8 +61,6 @@ const playRound = (playerSelection, computerSelection) => {
 
 }
 
-console.log(buttons)
-
 document.addEventListener("click", function(e) {
     if (e.target.classList.contains("btn-selection")) {
         buttons.forEach((button) => {
