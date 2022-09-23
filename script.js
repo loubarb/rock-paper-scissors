@@ -20,36 +20,36 @@ const playRound = (playerSelection, computerSelection) => {
 
     if (computerSelection === 'rock' && playerSelection === 'scissors') {
   
-        resultsDiv.innerHTML = `<h3>You lose. Computer played ${computerSelection}.</h3>`
+        resultsDiv.innerHTML = `<h3>You chose ${playerSelection}.</h3><h3>You lose. Computer played ${computerSelection}.</h3>`
         computerScore++
   
     } else if (computerSelection === 'rock' && playerSelection === 'paper') {
    
-        resultsDiv.innerHTML = `<h3>You win! Computer played ${computerSelection}.</h3>`
+        resultsDiv.innerHTML = `<h3>You chose ${playerSelection}.</h3><h3>You win! Computer played ${computerSelection}.</h3>`
         playerScore++
 
     } else if (computerSelection === 'paper' && playerSelection === 'scissors') {
 
-        resultsDiv.innerHTML = `<h3>You win! Computer played ${computerSelection}.</h3>`
+        resultsDiv.innerHTML = `<h3>You chose ${playerSelection}.</h3><h3>You win! Computer played ${computerSelection}.</h3>`
         playerScore++
 
     } else if (computerSelection === 'paper' && playerSelection === 'rock') {
 
-        resultsDiv.innerHTML = `<h3>You lose. Computer played ${computerSelection}.</h3>`
+        resultsDiv.innerHTML = `<h3>You chose ${playerSelection}.</h3><h3>You lose. Computer played ${computerSelection}.</h3>`
         computerScore++
 
     } else if (computerSelection === 'scissors' && playerSelection === 'rock') {
    
-        resultsDiv.innerHTML = `<h3>You win! Computer played ${computerSelection}.</h3>`
+        resultsDiv.innerHTML = `<h3>You chose ${playerSelection}.</h3><h3>You win! Computer played ${computerSelection}.</h3>`
         playerScore++
 
     } else if (computerSelection === 'scissors' && playerSelection === 'paper') {
 
-        resultsDiv.innerHTML = `<h3>You lose. Computer played ${computerSelection}.</h3>`
+        resultsDiv.innerHTML = `<h3>You chose ${playerSelection}.</h3><h3>You lose. Computer played ${computerSelection}.</h3>`
         computerScore++
 
     } else if (computerSelection === playerSelection) {
-        resultsDiv.innerHTML = `<h3>It's a draw. Computer also played ${computerSelection}.</h3>`
+        resultsDiv.innerHTML = `<h3>You chose ${playerSelection}.</h3><h3>It's a draw. Computer also played ${computerSelection}.</h3>`
 
     } else {
         resultsDiv.innerHTML = `<h3>Please enter a valid response</h3>`
@@ -60,6 +60,17 @@ const playRound = (playerSelection, computerSelection) => {
     updateScore()
 
 }
+
+console.log(buttons)
+
+document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("btn-selection")) {
+        buttons.forEach((button) => {
+            button.classList.remove("selected")
+        });
+        e.target.classList.add("selected")
+    }
+})
 
 function updateScore() {
     document.querySelector('.playerScore').textContent = playerScore
